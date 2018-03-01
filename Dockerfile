@@ -27,7 +27,8 @@ RUN apk --no-cache upgrade \
                 autoconf \
                 build-base
 
-COPY ["run.sh", "setup.sh", "./"]
 
-RUN chmod +x run.sh
-CMD ["./run.sh"]
+COPY ["start.sh", "config.txt.tpl", "./"]
+RUN chmod +x start.sh
+ENTRYPOINT ["./start.sh"]
+#CMD ["pool_url", "wallet", "password", "workers"]
